@@ -18,7 +18,7 @@ export class ArionumApi
         }
         return results;
     }   
-    
+        
     async getTransactions(accountId)
     {        
         let response = await fetch(this.server +'/api.php?q=getTransactions&account='+accountId);
