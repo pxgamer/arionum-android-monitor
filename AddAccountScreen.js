@@ -1,7 +1,8 @@
 import React from 'react';
-import {   View  } from 'react-native';
+import {   View, Alert  } from 'react-native';
 import { Repository } from './Repository';
 import { TextInput, Button } from 'react-native';
+import { ArionumApi } from './ArionumApi';
 
 export class AddAccountScreen extends React.Component {
     static navigationOptions = {
@@ -19,13 +20,24 @@ export class AddAccountScreen extends React.Component {
         this.onPressOk = this.onPressOk.bind(this);      
     }
 
-    onPressOk()
+
+    async onPressOk()
     {        
-        this.repo.addAccount(this.state.text);
-        this.props.navigation.navigate('Home');
+        let server = await this.repo.getRandomServer();
+        let api = new ArionumApi(server);
+        let accountId = this.state.text.trim();
+        let result = await api.checkAddress(accountId);
+
+        if (result) {
+            this.repo.addAccount(accountId);
+            this.props.navigation.navigate('Home');
+        } else {
+            Alert.alert("Error", "Invalid account id");
+        }        
     }
 
 
+    
 
     render() {
       const {navigate} = this.props.navigation;

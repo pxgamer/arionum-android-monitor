@@ -74,7 +74,7 @@ export class HomeScreen extends React.Component {
         <Divider style={{ backgroundColor: 'blue' }} />
         <FlatList
           data={this.state.accountList}
-         
+                 
           renderItem={({item}) => <ListItem 
             key={item.key} 
             title={ item.key} 

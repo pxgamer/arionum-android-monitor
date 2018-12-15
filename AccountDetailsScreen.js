@@ -45,8 +45,8 @@ export class AccountDetailsScreen extends React.Component {
 
     async loadData(accountId)
     {
-
-        let api = new ArionumApi(await this.repo.getRandomServer());
+        let server = await this.repo.getRandomServer();
+        let api = new ArionumApi(server);
 
         let data = await api.getTransactions(accountId);
         
@@ -61,6 +61,8 @@ export class AccountDetailsScreen extends React.Component {
                 }
             }
         );
+
+        
 
         
 
