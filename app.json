@@ -26,7 +26,8 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.marcinot.arionummon"
+      "package": "com.marcinot.arionummon",
+      "permissions": []
     }
   }
 }
