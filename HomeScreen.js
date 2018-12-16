@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList,  View, Button  } from 'react-native';
+import { FlatList,  View, Button, ActivityIndicator  } from 'react-native';
 import { ArionumApi } from './ArionumApi';
 import { NavigationEvents } from 'react-navigation';
 import { Repository } from './Repository';
@@ -23,7 +23,8 @@ export class HomeScreen extends React.Component {
         accountList : [],
         sum : 0.0,
         lastUpdated : null,
-        server : null
+        server : null,
+        loading: true
       };        
 
   }
@@ -51,7 +52,8 @@ export class HomeScreen extends React.Component {
       accountList : newAccountList,
       sum : newSum,
       lastUpdated : new Date(),
-      server : newServer
+      server : newServer,
+      loading: false
     }, function(){ });
 
   }
@@ -72,6 +74,11 @@ export class HomeScreen extends React.Component {
         />
         
         <Divider style={{ backgroundColor: 'blue' }} />
+        
+        {this.state.loading && (
+            <ActivityIndicator animating={true} hidesWhenStopped={true} size="large" />
+        )}
+
         <FlatList
           data={this.state.accountList}
                  

@@ -1,5 +1,5 @@
 import React from 'react';
-import {  View, FlatList, Alert, Button } from 'react-native';
+import {  View, FlatList, Alert, Button, ActivityIndicator } from 'react-native';
 import { NavigationEvents } from 'react-navigation';
 import { ArionumApi } from './ArionumApi';
 import { Repository } from './Repository';
@@ -19,7 +19,8 @@ export class AccountDetailsScreen extends React.Component {
 
         this.state = {
             accountId : '',
-            transactions : []
+            transactions : [],
+            loading: true
         };     
     }
 
@@ -44,7 +45,7 @@ export class AccountDetailsScreen extends React.Component {
     }
 
     async loadData(accountId)
-    {
+    {    
         let server = await this.repo.getRandomServer();
         let api = new ArionumApi(server);
 
@@ -69,7 +70,8 @@ export class AccountDetailsScreen extends React.Component {
 
         let newState = { 
             accountId : accountId, 
-            transactions : newTransactions
+            transactions : newTransactions,
+            loading : false
         };            
 
         
@@ -84,11 +86,14 @@ export class AccountDetailsScreen extends React.Component {
         <NavigationEvents
               onDidFocus={payload => { this.loadData(this.props.navigation.getParam('accountId', null)); } }
             />
+        {this.state.loading && (
+            <ActivityIndicator animating={true} hidesWhenStopped={true} size="large" />
+        )}
 
         <FlatList
           data={this.state.transactions}
           initialNumToRender={10}
-
+        
           renderItem={({item}) => <ListItem      
             key={item.key}        
             title={ item.account} 
