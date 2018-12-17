@@ -1,3 +1,4 @@
+/* global fetch */
 export class ArionumApi {
   constructor (server) {
     this.server = server
