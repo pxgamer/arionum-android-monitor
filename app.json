@@ -28,6 +28,7 @@
     "android": {
       "package": "com.marcinot.arionummon",
       "permissions": []
-    }
+    },
+    "githubUrl": "https://github.com/marcinot/ArionumMonitor"
   }
 }

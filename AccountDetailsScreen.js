@@ -109,11 +109,11 @@ export class AccountDetailsScreen extends React.Component {
         />
         
             <Button
-            title="Delete account"
+            title="Remove account"
             onPress={() => {
 
                 Alert.alert(
-                    'Delete account',
+                    'Remove account',
                     'Are you sure?',
                     [                      
                       {text: 'Cancel', style: 'cancel'},
