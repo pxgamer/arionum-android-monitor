@@ -7,8 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "check-style": "standard .",
-    "fix-style": "standard . --fix"
+    "check-style": "standard",
+    "fix-style": "standard --fix"
   },
   "dependencies": {
     "expo": "^31.0.2",
