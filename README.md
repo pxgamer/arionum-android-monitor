@@ -1,7 +1,7 @@
 # ArionumMonitor
 
 [![ico-play-store]][link-play-store]
-[![Software License][ico-license]](LICENSE)
+[![Software License][ico-license]](LICENSE.txt)
 
 A simple application to monitor your Arionum (ARO) accounts.
 
@@ -15,7 +15,7 @@ A simple application to monitor your Arionum (ARO) accounts.
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+The MIT License (MIT). Please see [License File](LICENSE.txt) for more information.
 
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-play-store]: https://img.shields.io/badge/install-play%20store-689f38.svg?style=flat-square
