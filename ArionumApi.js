@@ -33,7 +33,4 @@ export class ArionumApi {
     let r = await response.json()
     return r.data
   }
-
 }
-
-

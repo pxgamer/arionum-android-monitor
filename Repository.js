@@ -1,14 +1,9 @@
 import { AsyncStorage } from 'react-native'
 
 export class Repository {
-  constructor () {
-
-  }
-
   async getAccountList () {
     let accountListJson = await AsyncStorage.getItem('ArionumAccountList')
-    if (accountListJson != null)
-      return JSON.parse(accountListJson)
+    if (accountListJson != null) { return JSON.parse(accountListJson) }
     return []
   }
 
@@ -16,7 +11,7 @@ export class Repository {
     val = val.trim()
     if (val.length > 0) {
       let accountList = await this.getAccountList()
-      if (accountList.indexOf(val) == -1) {
+      if (accountList.indexOf(val) === -1) {
         accountList.push(val)
         return this.saveAccountList(accountList)
       }
